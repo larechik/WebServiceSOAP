@@ -1,0 +1,46 @@
+sql> CREATE TABLE "persons" (
+  id SERIAL NOT NULL,
+  NAME VARCHAR(200) NOT NULL,
+  MIDDLE_NAME VARCHAR(200),
+  SURNAME VARCHAR(200) NOT NULL,
+  DOB DATE,
+  SEX VARCHAR(50),
+  CONSTRAINT pk_id PRIMARY KEY(id)
+)
+  [2018-02-18 19:10:26] completed in 53ms
+sql> INSERT into persons(NAME,MIDDLE_NAME,SURNAME,DOB,SEX) VALUES ('Василий','Васильевич','Иванов','12.05.1974','male')
+[2018-02-18 19:14:03] 1 row affected in 25ms
+sql> INSERT into persons(NAME,MIDDLE_NAME,SURNAME,DOB,SEX) VALUES ('Вадим','Вадимович','Свежий','19.02.1994','male')
+[2018-02-18 19:16:05] 1 row affected in 6ms
+sql> INSERT into persons(NAME,MIDDLE_NAME,SURNAME,DOB,SEX) VALUES ('Александра','Евгеньевна','Колесова','23.08.1998','female')
+[2018-02-18 19:16:05] 1 row affected in 5ms
+sql> INSERT into persons(NAME,SURNAME,DOB,SEX) VALUES ('Василий','Иванов','15.06.1985','male')
+[2018-02-18 19:16:05] 1 row affected in 19ms
+sql> INSERT into persons(NAME,MIDDLE_NAME,SURNAME,DOB,SEX) VALUES ('Варвара','Игнатьевна','Холопец','25.03.2001','female')
+[2018-02-18 19:27:13] 1 row affected in 7ms
+sql> INSERT into persons(NAME,MIDDLE_NAME,SURNAME,DOB,SEX) VALUES ('Деонис','Юрьевич','Ололоев','11.10.2001','male')
+[2018-02-18 19:27:13] 1 row affected in 4ms
+sql> INSERT into persons(NAME,SURNAME,DOB,SEX) VALUES ('Дэйв','Миньон','8.07.2010','')
+[2018-02-18 19:27:13] 1 row affected in 6ms
+sql> INSERT into persons(NAME,SURNAME,DOB,SEX) VALUES ('Стюарт','Миньон','8.07.2010','')
+[2018-02-18 19:27:13] 1 row affected in 8ms
+sql> INSERT into persons(NAME,SURNAME,DOB,SEX) VALUES ('Боб','Миньон','8.07.2010','')
+[2018-02-18 19:27:13] 1 row affected in 5ms
+sql> INSERT into persons(NAME,SURNAME,DOB,SEX) VALUES ('Кэвин','Миньон','8.07.2010','')
+[2018-02-18 19:27:13] 1 row affected in 15ms
+sql> INSERT into persons(NAME,MIDDLE_NAME,SURNAME,DOB,SEX) VALUES ('Гарри','Джеймс','Поттер','31.07.1980','male')
+[2018-02-18 19:27:13] 1 row affected in 8ms
+sql> INSERT into persons(NAME,MIDDLE_NAME,SURNAME,DOB,SEX) VALUES ('Том','Марволо','Реддл','31.12.1926','male')
+[2018-02-18 19:27:13] 1 row affected in 7ms
+sql> INSERT into persons(NAME,SURNAME,DOB,SEX) VALUES ('Северус','Снегг','9.01.1960','male')
+[2018-02-18 19:27:13] 1 row affected in 13ms
+sql> INSERT into persons(NAME,SURNAME,DOB,SEX) VALUES ('Геллерт','Грин-де-Вальд','12.03.1882','male')
+[2018-02-18 19:29:11] 1 row affected in 4ms
+sql> INSERT into persons(NAME,MIDDLE_NAME,SURNAME,DOB,SEX) VALUES ('Гермиона','Джин','Рейнджер','19.09.1979','female')
+[2018-02-18 19:29:11] 1 row affected in 6ms
+sql> INSERT into persons(NAME,SURNAME,DOB,SEX)VALUES ('Беллатриса','Лестрейндж','2.05.1951','female')
+[2018-02-18 19:29:11] 1 row affected in 8ms
+sql> INSERT into persons(NAME,SURNAME,DOB,SEX) VALUES ('Драко','Малфой','05.06.1980','male')
+[2018-02-18 19:29:11] 1 row affected in 4ms
+sql> INSERT into persons(NAME,MIDDLE_NAME,SURNAME,DOB,SEX) VALUES ('Альбус','Персиваль','Дамблдор','22.08.1881','male')
+[2018-02-18 19:29:11] 1 row affected in 22ms
