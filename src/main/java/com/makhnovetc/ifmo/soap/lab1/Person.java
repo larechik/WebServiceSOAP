@@ -39,7 +39,7 @@ public class Person {
         return dob;
     }
     public String getSex() {
-        return surname;
+        return sex;
     }
     public void setId(int id){
         this.id = id;
@@ -59,8 +59,8 @@ public class Person {
     public void setSex(String sex) {
         this.sex = sex;
     }
-    @Override
-    public String toString() {
-        return "Person{" + "name=" + name + ", middle name=" + middlename +", surname=" + surname + ", date of birthday=" + dob + ", sex=" + sex +'}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Person{" + "name=" + name + ", middle name=" + middlename +", surname=" + surname + ", date of birthday=" + dob + ", sex=" + sex +'}';
+//    }
 }

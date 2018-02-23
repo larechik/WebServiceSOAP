@@ -23,4 +23,16 @@ public class PersonWebService {
         List<Person> persons = dao.getPersons();
         return persons;
     }
+    @WebMethod(operationName = "getPersonsQuery")
+    public List<Person> getPersons(String query)  {
+        PostgreSQLDAO dao = new PostgreSQLDAO();
+        List<Person> persons = dao.getPersons(query) ;
+        return persons;
+    }
+    @WebMethod(operationName = "findPeople")
+    public List<Person> findPeople(String id, String name, String middlename, String surname, String dob, String sex) {
+        PostgreSQLDAO dao = new PostgreSQLDAO();
+        List<Person> persons = dao.findPeople(id, name, middlename, surname, dob, sex) ;
+        return persons;
+    }
 }
