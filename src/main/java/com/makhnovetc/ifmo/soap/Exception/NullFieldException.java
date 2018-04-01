@@ -2,22 +2,27 @@ package com.makhnovetc.ifmo.soap.Exception;
 
 import javax.xml.ws.WebFault;
 
-@WebFault(faultBean = "com.makhnovetc.ifmo.soap.Exception.NullFieldException")
+@WebFault(faultBean = "com.makhnovetc.ifmo.soap.Exception.ExceptionBean")
 public class NullFieldException extends Exception{
+    private static String defMessage = "Invalid field. Field is null or empty.";
+    private final ExceptionBean fault;
 
-    private final NullFieldExceptionBean fault;
-
-    public NullFieldException(String message, NullFieldExceptionBean fault){
+    public NullFieldException(String message, ExceptionBean fault){
         super(message);
         this.fault = fault;
     }
 
-    public NullFieldException(String message, NullFieldExceptionBean fault, Throwable cause){
+    public NullFieldException(String message, ExceptionBean fault, Throwable cause){
         super(message);
         this.fault = fault;
     }
 
-    public NullFieldExceptionBean getFaultInfo() {
+    public NullFieldException(ExceptionBean fault){
+        super(defMessage);
+        this.fault = fault;
+    }
+
+    public ExceptionBean getFaultInfo() {
         return fault;
     }
 }

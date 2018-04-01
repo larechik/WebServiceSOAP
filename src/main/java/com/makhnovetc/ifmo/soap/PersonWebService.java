@@ -1,10 +1,7 @@
 package com.makhnovetc.ifmo.soap;
 
-import com.makhnovetc.ifmo.soap.Exception.InvalidDateFormatException;
-import com.makhnovetc.ifmo.soap.Exception.InvalidDateFormatExceptionBean;
-import com.makhnovetc.ifmo.soap.Exception.NullFieldException;
-import com.makhnovetc.ifmo.soap.Exception.NullFieldExceptionBean;
-import com.makhnovetc.ifmo.soap.Person;
+import com.makhnovetc.ifmo.soap.Exception.*;
+import com.makhnovetc.ifmo.soap.Exception.ExceptionBean;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -29,7 +26,7 @@ public class PersonWebService {
     }
 
     @WebMethod(operationName = "updatePerson")
-    public String updatePerson(String id, String name, String middlename, String surname, String dob, String sex) throws NullFieldException {
+    public String updatePerson(String id, String name, String middlename, String surname, String dob, String sex) throws NullFieldException, InvalidFieldException {
         checkField(id);
         checkField(name);
         checkField(middlename);
@@ -37,14 +34,22 @@ public class PersonWebService {
         checkField(dob);
         checkField(sex);
         PostgreSQLDAO dao = new PostgreSQLDAO();
+        if (!dao.checkPerson(id)){
+            ExceptionBean fault = new ExceptionBean();
+            throw new InvalidFieldException("This id is invalid.",fault);
+        }
         String status = dao.updatePerson(id, name, middlename, surname, dob, sex);
         return status;
     }
 
     @WebMethod(operationName = "deletePerson")
-    public String deletePerson(String id) throws NullFieldException {
+    public String deletePerson(String id) throws NullFieldException, InvalidFieldException {
         checkField(id);
         PostgreSQLDAO dao = new PostgreSQLDAO();
+        if (!dao.checkPerson(id)){
+            ExceptionBean fault = new ExceptionBean();
+            throw new InvalidFieldException("This id is invalid.",fault);
+        }
         String status = dao.deletPerson(id);
         return status;
     }
@@ -65,7 +70,7 @@ public class PersonWebService {
         checkField(dob);
         checkField(sex);
         if (checkDate(dob)){
-            InvalidDateFormatExceptionBean fault=new InvalidDateFormatExceptionBean();
+            ExceptionBean fault=new ExceptionBean();
             throw new InvalidDateFormatException("Error entering dob: wrong format. The correct format is 'YYYY-MM-DD",fault);
         }
         PostgreSQLDAO dao = new PostgreSQLDAO();
@@ -75,8 +80,8 @@ public class PersonWebService {
 
     private void checkField(String field) throws NullFieldException {
         if (field == null || field.isEmpty()) {
-            NullFieldExceptionBean fault = new NullFieldExceptionBean();
-            throw new NullFieldException("Error entering " + field + " : " + field + " is null or empty", fault);
+            ExceptionBean fault = new ExceptionBean();
+            throw new NullFieldException("Error entering " + field.toString() + " : " + field.toString() + " is null or empty", fault);
         }
     }
 

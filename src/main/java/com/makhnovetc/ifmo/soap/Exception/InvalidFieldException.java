@@ -3,21 +3,22 @@ package com.makhnovetc.ifmo.soap.Exception;
 import javax.xml.ws.WebFault;
 
 @WebFault(faultBean = "com.makhnovetc.ifmo.soap.Exception.ExceptionBean")
-public class InvalidDateFormatException extends Exception{
-    private static String defMessage = "Invalid date format.";
+public class InvalidFieldException extends Exception {
+    private static String defMessage = "Invalid field.";
+
     private final ExceptionBean fault;
 
-    public InvalidDateFormatException(String message, ExceptionBean fault){
+    public InvalidFieldException(String message, ExceptionBean fault){
         super(message);
         this.fault = fault;
     }
 
-    public InvalidDateFormatException(String message, ExceptionBean fault, Throwable cause){
+    public InvalidFieldException(String message, ExceptionBean fault, Throwable cause){
         super(message);
         this.fault = fault;
     }
 
-    public InvalidDateFormatException(ExceptionBean fault){
+    public InvalidFieldException(ExceptionBean fault){
         super(defMessage);
         this.fault = fault;
     }

@@ -119,12 +119,21 @@ public class PostgreSQLDAO {
         return status;
     }
 
-
-
-
-
-
-
-
-
+    public boolean checkPerson(String id){
+        boolean check=false;
+        Person person = new Person();
+        String query = "Select count(*) from persons as count where id = " + id;
+        try (Connection connection = ConnectionUtil.getConnection()){
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            rs.next();
+            int count = rs.getInt("count");
+            if (count == 1) {
+                check = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PostgreSQLDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return check;
+    }
 }
