@@ -1,4 +1,4 @@
-package com.makhnovetc.ifmo.soap.lab1;
+package com.makhnovetc.ifmo.soap;
 
 import java.util.Date;
 

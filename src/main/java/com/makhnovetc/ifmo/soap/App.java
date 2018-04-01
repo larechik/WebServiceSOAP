@@ -1,4 +1,4 @@
-package com.makhnovetc.ifmo.soap.lab1;
+package com.makhnovetc.ifmo.soap;
 
 import javax.xml.ws.Endpoint;
 /** Данный класс содержит main метод, и его основная цель – это запустить вебсервис.

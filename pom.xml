@@ -15,7 +15,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.makhnovetc.ifmo.soap.lab1.App</mainClass>
+                            <mainClass>com.makhnovetc.ifmo.soap.App</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
@@ -51,6 +51,7 @@
         <artifactId>postgresql</artifactId>
         <version>9.2-1003-jdbc4</version>
     </dependency>
+
     </dependencies>
     
 </project>

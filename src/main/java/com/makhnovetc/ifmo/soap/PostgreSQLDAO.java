@@ -1,11 +1,6 @@
-package com.makhnovetc.ifmo.soap.lab1;
+package com.makhnovetc.ifmo.soap;
 
-import javax.xml.soap.SAAJResult;
 import java.sql.*;
-import java.text.DateFormat;
-import java.text.Format;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -13,8 +8,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import com.makhnovetc.ifmo.soap.lab1.Person;
-import sun.util.calendar.LocalGregorianCalendar;
 
 /** Класс, содержащий метод для выборки данных из базы данных, а также
  упаковки этих данных в объекты класса Person.
@@ -125,6 +118,7 @@ public class PostgreSQLDAO {
         }
         return status;
     }
+
 
 
 
